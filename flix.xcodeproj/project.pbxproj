@@ -1,0 +1,582 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CE523CB620E40AA000A68B38 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE523CB520E40AA000A68B38 /* AppDelegate.m */; };
+		CE523CB920E40AA000A68B38 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE523CB820E40AA000A68B38 /* ViewController.m */; };
+		CE523CBC20E40AA000A68B38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE523CBA20E40AA000A68B38 /* Main.storyboard */; };
+		CE523CBE20E40AA100A68B38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE523CBD20E40AA100A68B38 /* Assets.xcassets */; };
+		CE523CC120E40AA100A68B38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE523CBF20E40AA100A68B38 /* LaunchScreen.storyboard */; };
+		CE523CC420E40AA100A68B38 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE523CC320E40AA100A68B38 /* main.m */; };
+		CE523CCE20E40AA100A68B38 /* flixTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE523CCD20E40AA100A68B38 /* flixTests.m */; };
+		CE523CD920E40AA100A68B38 /* flixUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE523CD820E40AA100A68B38 /* flixUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CE523CCA20E40AA100A68B38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE523CA920E40AA000A68B38 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE523CB020E40AA000A68B38;
+			remoteInfo = flix;
+		};
+		CE523CD520E40AA100A68B38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE523CA920E40AA000A68B38 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE523CB020E40AA000A68B38;
+			remoteInfo = flix;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CE523CB120E40AA000A68B38 /* flix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flix.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE523CB420E40AA000A68B38 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CE523CB520E40AA000A68B38 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CE523CB720E40AA000A68B38 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		CE523CB820E40AA000A68B38 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		CE523CBB20E40AA000A68B38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CE523CBD20E40AA100A68B38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CE523CC020E40AA100A68B38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CE523CC220E40AA100A68B38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE523CC320E40AA100A68B38 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CE523CC920E40AA100A68B38 /* flixTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = flixTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE523CCD20E40AA100A68B38 /* flixTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = flixTests.m; sourceTree = "<group>"; };
+		CE523CCF20E40AA100A68B38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE523CD420E40AA100A68B38 /* flixUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = flixUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE523CD820E40AA100A68B38 /* flixUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = flixUITests.m; sourceTree = "<group>"; };
+		CE523CDA20E40AA100A68B38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CE523CAE20E40AA000A68B38 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE523CC620E40AA100A68B38 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE523CD120E40AA100A68B38 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CE523CA820E40AA000A68B38 = {
+			isa = PBXGroup;
+			children = (
+				CE523CB320E40AA000A68B38 /* flix */,
+				CE523CCC20E40AA100A68B38 /* flixTests */,
+				CE523CD720E40AA100A68B38 /* flixUITests */,
+				CE523CB220E40AA000A68B38 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CE523CB220E40AA000A68B38 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CE523CB120E40AA000A68B38 /* flix.app */,
+				CE523CC920E40AA100A68B38 /* flixTests.xctest */,
+				CE523CD420E40AA100A68B38 /* flixUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CE523CB320E40AA000A68B38 /* flix */ = {
+			isa = PBXGroup;
+			children = (
+				CE523CB420E40AA000A68B38 /* AppDelegate.h */,
+				CE523CB520E40AA000A68B38 /* AppDelegate.m */,
+				CE523CB720E40AA000A68B38 /* ViewController.h */,
+				CE523CB820E40AA000A68B38 /* ViewController.m */,
+				CE523CBA20E40AA000A68B38 /* Main.storyboard */,
+				CE523CBD20E40AA100A68B38 /* Assets.xcassets */,
+				CE523CBF20E40AA100A68B38 /* LaunchScreen.storyboard */,
+				CE523CC220E40AA100A68B38 /* Info.plist */,
+				CE523CC320E40AA100A68B38 /* main.m */,
+			);
+			path = flix;
+			sourceTree = "<group>";
+		};
+		CE523CCC20E40AA100A68B38 /* flixTests */ = {
+			isa = PBXGroup;
+			children = (
+				CE523CCD20E40AA100A68B38 /* flixTests.m */,
+				CE523CCF20E40AA100A68B38 /* Info.plist */,
+			);
+			path = flixTests;
+			sourceTree = "<group>";
+		};
+		CE523CD720E40AA100A68B38 /* flixUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CE523CD820E40AA100A68B38 /* flixUITests.m */,
+				CE523CDA20E40AA100A68B38 /* Info.plist */,
+			);
+			path = flixUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CE523CB020E40AA000A68B38 /* flix */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE523CDD20E40AA100A68B38 /* Build configuration list for PBXNativeTarget "flix" */;
+			buildPhases = (
+				CE523CAD20E40AA000A68B38 /* Sources */,
+				CE523CAE20E40AA000A68B38 /* Frameworks */,
+				CE523CAF20E40AA000A68B38 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = flix;
+			productName = flix;
+			productReference = CE523CB120E40AA000A68B38 /* flix.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CE523CC820E40AA100A68B38 /* flixTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE523CE020E40AA100A68B38 /* Build configuration list for PBXNativeTarget "flixTests" */;
+			buildPhases = (
+				CE523CC520E40AA100A68B38 /* Sources */,
+				CE523CC620E40AA100A68B38 /* Frameworks */,
+				CE523CC720E40AA100A68B38 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CE523CCB20E40AA100A68B38 /* PBXTargetDependency */,
+			);
+			name = flixTests;
+			productName = flixTests;
+			productReference = CE523CC920E40AA100A68B38 /* flixTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CE523CD320E40AA100A68B38 /* flixUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE523CE320E40AA100A68B38 /* Build configuration list for PBXNativeTarget "flixUITests" */;
+			buildPhases = (
+				CE523CD020E40AA100A68B38 /* Sources */,
+				CE523CD120E40AA100A68B38 /* Frameworks */,
+				CE523CD220E40AA100A68B38 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CE523CD620E40AA100A68B38 /* PBXTargetDependency */,
+			);
+			name = flixUITests;
+			productName = flixUITests;
+			productReference = CE523CD420E40AA100A68B38 /* flixUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CE523CA920E40AA000A68B38 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = codepath;
+				TargetAttributes = {
+					CE523CB020E40AA000A68B38 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					CE523CC820E40AA100A68B38 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = CE523CB020E40AA000A68B38;
+					};
+					CE523CD320E40AA100A68B38 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = CE523CB020E40AA000A68B38;
+					};
+				};
+			};
+			buildConfigurationList = CE523CAC20E40AA000A68B38 /* Build configuration list for PBXProject "flix" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CE523CA820E40AA000A68B38;
+			productRefGroup = CE523CB220E40AA000A68B38 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CE523CB020E40AA000A68B38 /* flix */,
+				CE523CC820E40AA100A68B38 /* flixTests */,
+				CE523CD320E40AA100A68B38 /* flixUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CE523CAF20E40AA000A68B38 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE523CC120E40AA100A68B38 /* LaunchScreen.storyboard in Resources */,
+				CE523CBE20E40AA100A68B38 /* Assets.xcassets in Resources */,
+				CE523CBC20E40AA000A68B38 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE523CC720E40AA100A68B38 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE523CD220E40AA100A68B38 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CE523CAD20E40AA000A68B38 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE523CB920E40AA000A68B38 /* ViewController.m in Sources */,
+				CE523CC420E40AA100A68B38 /* main.m in Sources */,
+				CE523CB620E40AA000A68B38 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE523CC520E40AA100A68B38 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE523CCE20E40AA100A68B38 /* flixTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE523CD020E40AA100A68B38 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE523CD920E40AA100A68B38 /* flixUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CE523CCB20E40AA100A68B38 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE523CB020E40AA000A68B38 /* flix */;
+			targetProxy = CE523CCA20E40AA100A68B38 /* PBXContainerItemProxy */;
+		};
+		CE523CD620E40AA100A68B38 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE523CB020E40AA000A68B38 /* flix */;
+			targetProxy = CE523CD520E40AA100A68B38 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CE523CBA20E40AA000A68B38 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE523CBB20E40AA000A68B38 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CE523CBF20E40AA100A68B38 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE523CC020E40AA100A68B38 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CE523CDB20E40AA100A68B38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CE523CDC20E40AA100A68B38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CE523CDE20E40AA100A68B38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HDF54N6KHN;
+				INFOPLIST_FILE = flix/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = connorclancy.flix;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CE523CDF20E40AA100A68B38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HDF54N6KHN;
+				INFOPLIST_FILE = flix/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = connorclancy.flix;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CE523CE120E40AA100A68B38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HDF54N6KHN;
+				INFOPLIST_FILE = flixTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = connorclancy.flixTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/flix.app/flix";
+			};
+			name = Debug;
+		};
+		CE523CE220E40AA100A68B38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HDF54N6KHN;
+				INFOPLIST_FILE = flixTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = connorclancy.flixTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/flix.app/flix";
+			};
+			name = Release;
+		};
+		CE523CE420E40AA100A68B38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HDF54N6KHN;
+				INFOPLIST_FILE = flixUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = connorclancy.flixUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = flix;
+			};
+			name = Debug;
+		};
+		CE523CE520E40AA100A68B38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HDF54N6KHN;
+				INFOPLIST_FILE = flixUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = connorclancy.flixUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = flix;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CE523CAC20E40AA000A68B38 /* Build configuration list for PBXProject "flix" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE523CDB20E40AA100A68B38 /* Debug */,
+				CE523CDC20E40AA100A68B38 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE523CDD20E40AA100A68B38 /* Build configuration list for PBXNativeTarget "flix" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE523CDE20E40AA100A68B38 /* Debug */,
+				CE523CDF20E40AA100A68B38 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE523CE020E40AA100A68B38 /* Build configuration list for PBXNativeTarget "flixTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE523CE120E40AA100A68B38 /* Debug */,
+				CE523CE220E40AA100A68B38 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE523CE320E40AA100A68B38 /* Build configuration list for PBXNativeTarget "flixUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE523CE420E40AA100A68B38 /* Debug */,
+				CE523CE520E40AA100A68B38 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CE523CA920E40AA000A68B38 /* Project object */;
+}
