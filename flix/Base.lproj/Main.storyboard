@@ -30,7 +30,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="163.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7a3-Yp-0WL">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7a3-Yp-0WL">
                                                     <rect key="frame" x="0.0" y="-27" width="375" height="190"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="1" green="0.96196711030000004" blue="0.42036303990000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -58,7 +58,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="posterView" destination="0Zi-k9-qcC" id="rGf-MZ-eaT"/>
+                                            <outlet property="posterImage" destination="7a3-Yp-0WL" id="Ncd-eG-QDr"/>
                                             <outlet property="synopsisLabel" destination="0Zi-k9-qcC" id="YC0-hn-9iA"/>
                                             <outlet property="titleLabel" destination="4iJ-0A-Meu" id="D1f-VC-NI1"/>
                                         </connections>

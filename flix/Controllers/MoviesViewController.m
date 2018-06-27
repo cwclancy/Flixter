@@ -8,6 +8,8 @@
 
 #import "MoviesViewController.h"
 #import "MovieCell.h"
+#import "UIImageView+AFNetworking.h"
+
 
 @interface MoviesViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -74,7 +76,14 @@
     cell.titleLabel.text = movie[@"title"];
     cell.synopsisLabel.text = movie[@"overview"];
     
-        
+    // Adding Poster Photo
+    NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
+    NSString *posterURLString = movie[@"poster_path"];
+    NSString *fullPosterURLString = [baseURLString stringByAppendingString:posterURLString];
+    NSURL *posterURL = [NSURL URLWithString:fullPosterURLString];
+    cell.posterImage.image = nil;
+    [cell.posterImage setImageWithURL:posterURL];
+    
     return cell;
 }
 /*
