@@ -19,6 +19,7 @@
 		CE523CD920E40AA100A68B38 /* flixUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE523CD820E40AA100A68B38 /* flixUITests.m */; };
 		CE523CE820E4128E00A68B38 /* MoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE523CE720E4128E00A68B38 /* MoviesViewController.m */; };
 		CE523CEF20E44B7B00A68B38 /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE523CEE20E44B7B00A68B38 /* MovieCell.m */; };
+		CE523CF220E45ABD00A68B38 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE523CF120E45ABD00A68B38 /* DetailsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,8 @@
 		CE523CE720E4128E00A68B38 /* MoviesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoviesViewController.m; sourceTree = "<group>"; };
 		CE523CED20E44B7B00A68B38 /* MovieCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieCell.h; sourceTree = "<group>"; };
 		CE523CEE20E44B7B00A68B38 /* MovieCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieCell.m; sourceTree = "<group>"; };
+		CE523CF020E45ABD00A68B38 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		CE523CF120E45ABD00A68B38 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		F39BD0BB582570F20A28F226 /* Pods-flix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flix.debug.xcconfig"; path = "Pods/Target Support Files/Pods-flix/Pods-flix.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -197,6 +200,8 @@
 			children = (
 				CE523CE620E4128E00A68B38 /* MoviesViewController.h */,
 				CE523CE720E4128E00A68B38 /* MoviesViewController.m */,
+				CE523CF020E45ABD00A68B38 /* DetailsViewController.h */,
+				CE523CF120E45ABD00A68B38 /* DetailsViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -392,6 +397,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE523CC420E40AA100A68B38 /* main.m in Sources */,
+				CE523CF220E45ABD00A68B38 /* DetailsViewController.m in Sources */,
 				CE523CB620E40AA000A68B38 /* AppDelegate.m in Sources */,
 				CE523CEF20E44B7B00A68B38 /* MovieCell.m in Sources */,
 				CE523CE820E4128E00A68B38 /* MoviesViewController.m in Sources */,
