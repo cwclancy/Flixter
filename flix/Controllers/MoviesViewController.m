@@ -49,8 +49,14 @@
             UIAlertAction *retry = [UIAlertAction actionWithTitle:@"Retry" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 [self fetchMovies];
             }];
+            NSLog(@"HERE!!!!");
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Request Failed" message:@"Check your internet and retry" preferredStyle:(UIAlertControllerStyleAlert)];
+            [alert addAction:retry];
+            [self presentViewController:alert animated:YES completion:^{
+                [self fetchMovies];
+            }];
         }
+        
         else {
             NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
             
