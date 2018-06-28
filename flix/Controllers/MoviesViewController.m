@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (strong, nonatomic) IBOutlet UIVisualEffectView *blurEffect;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *mainActivityMonitor;
 
 @end
 
@@ -25,20 +26,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+
 
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self fetchMovies];
-    
     // CREATE REFRESH CONTROL
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(fetchMovies) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:self.refreshControl atIndex:0];
     
     
+    
 }
 
 - (void)fetchMovies {
+    [self.mainActivityMonitor startAnimating];
+    [self.view bringSubviewToFront:self.mainActivityMonitor];
     // network call
     NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
@@ -74,6 +79,7 @@
             // TODO: Reload your table view data
         }
         [self.refreshControl endRefreshing];
+        [self.mainActivityMonitor stopAnimating];
     }];
     [task resume];
 }
