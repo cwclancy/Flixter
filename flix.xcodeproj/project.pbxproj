@@ -20,6 +20,8 @@
 		CE523CE820E4128E00A68B38 /* MoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE523CE720E4128E00A68B38 /* MoviesViewController.m */; };
 		CE523CEF20E44B7B00A68B38 /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE523CEE20E44B7B00A68B38 /* MovieCell.m */; };
 		CE523CF220E45ABD00A68B38 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE523CF120E45ABD00A68B38 /* DetailsViewController.m */; };
+		CECB764220E55C4A00E16028 /* GridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CECB764120E55C4A00E16028 /* GridViewController.m */; };
+		CECB764520E560A100E16028 /* MovieCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CECB764420E560A100E16028 /* MovieCollectionCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,10 @@
 		CE523CEE20E44B7B00A68B38 /* MovieCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieCell.m; sourceTree = "<group>"; };
 		CE523CF020E45ABD00A68B38 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		CE523CF120E45ABD00A68B38 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		CECB764020E55C4A00E16028 /* GridViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GridViewController.h; sourceTree = "<group>"; };
+		CECB764120E55C4A00E16028 /* GridViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GridViewController.m; sourceTree = "<group>"; };
+		CECB764320E560A100E16028 /* MovieCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieCollectionCell.h; sourceTree = "<group>"; };
+		CECB764420E560A100E16028 /* MovieCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieCollectionCell.m; sourceTree = "<group>"; };
 		F39BD0BB582570F20A28F226 /* Pods-flix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flix.debug.xcconfig"; path = "Pods/Target Support Files/Pods-flix/Pods-flix.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -184,6 +190,8 @@
 			children = (
 				CE523CED20E44B7B00A68B38 /* MovieCell.h */,
 				CE523CEE20E44B7B00A68B38 /* MovieCell.m */,
+				CECB764320E560A100E16028 /* MovieCollectionCell.h */,
+				CECB764420E560A100E16028 /* MovieCollectionCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -202,6 +210,8 @@
 				CE523CE720E4128E00A68B38 /* MoviesViewController.m */,
 				CE523CF020E45ABD00A68B38 /* DetailsViewController.h */,
 				CE523CF120E45ABD00A68B38 /* DetailsViewController.m */,
+				CECB764020E55C4A00E16028 /* GridViewController.h */,
+				CECB764120E55C4A00E16028 /* GridViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -399,7 +409,9 @@
 				CE523CC420E40AA100A68B38 /* main.m in Sources */,
 				CE523CF220E45ABD00A68B38 /* DetailsViewController.m in Sources */,
 				CE523CB620E40AA000A68B38 /* AppDelegate.m in Sources */,
+				CECB764520E560A100E16028 /* MovieCollectionCell.m in Sources */,
 				CE523CEF20E44B7B00A68B38 /* MovieCell.m in Sources */,
+				CECB764220E55C4A00E16028 /* GridViewController.m in Sources */,
 				CE523CE820E4128E00A68B38 /* MoviesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
