@@ -167,8 +167,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="4JM-oi-0BI" kind="relationship" relationship="viewControllers" id="e23-sD-032"/>
-                        <segue destination="dkp-md-DvS" kind="relationship" relationship="viewControllers" id="3J9-YL-lb7"/>
+                        <segue destination="dkp-md-DvS" kind="relationship" relationship="viewControllers" id="wnC-YV-1WD"/>
+                        <segue destination="4JM-oi-0BI" kind="relationship" relationship="viewControllers" id="ebs-iE-eHj"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iV9-xf-yiy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -226,6 +226,7 @@
                                         </view>
                                         <connections>
                                             <outlet property="posterView" destination="d2I-pc-TsI" id="B2s-fR-dHY"/>
+                                            <segue destination="0FO-fW-gfR" kind="show" id="C9w-ay-2Cn"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -263,4 +264,7 @@
             <point key="canvasLocation" x="-2287" y="-130"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="C9w-ay-2Cn"/>
+    </inferredMetricsTieBreakers>
 </document>
