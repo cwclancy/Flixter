@@ -8,6 +8,8 @@
 
 #import "DetailsViewController.h"
 #import "UIImageView+AFNetworking.h"
+#import "MoviesViewController.h"
+#import "FavoritesModel.h"
 
 @interface DetailsViewController ()
 
@@ -17,10 +19,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *synopsisLabel;
 @property (weak, nonatomic) IBOutlet UILabel *releaseDateLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
-
+@property (nonatomic) bool flag;
 @end
 
 @implementation DetailsViewController
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -45,11 +49,57 @@
     [self.synopsisLabel sizeToFit];
     [self.synopsisLabel sizeToFit];
     [self.loadingIndicator stopAnimating];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    // prepare the view
+}
+
+// FAVORITE  BUTTON
+
+- (void)addMovie:(NSDictionary *)movie {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSArray *check = [defaults objectForKey:@"movies"];
+    if (check != nil) {
+        NSLog(check[0][@"title"]);
+        NSLog([NSString stringWithFormat:@"type this %lu", check.count]);
+        NSArray *local_movies = [defaults objectForKey:@"movies"];
+        NSMutableArray *temp = [NSMutableArray arrayWithArray:local_movies];
+        [temp addObject:movie];
+        NSArray *final = [NSArray arrayWithArray:temp];
+        [defaults setObject:final forKey:@"movies"];
+        self.flag = true;
+    }
+    else {
+        NSMutableArray *local_movies = [[NSMutableArray alloc] init];
+        [local_movies addObject:self.movie];
+        [defaults setObject:(NSArray *)local_movies forKey:@"movies"];
+    }
+}
+
+- (NSArray *)getMovies {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    return (NSArray *)[defaults objectForKey:@"movies"];
+}
+
+
+
+- (IBAction)favoriteButton:(id)sender {
+    [self addMovie:self.movie];
+    NSLog(self.movie[@"title"]);
+    NSArray *mv = [self getMovies];
+    NSLog([NSString stringWithFormat:@"This is the Count %lu", mv.count]);
+    NSLog(mv[0][@"title"]);
+
 }
 
 

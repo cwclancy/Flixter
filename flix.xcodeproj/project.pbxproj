@@ -22,6 +22,8 @@
 		CE523CF220E45ABD00A68B38 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE523CF120E45ABD00A68B38 /* DetailsViewController.m */; };
 		CECB764220E55C4A00E16028 /* GridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CECB764120E55C4A00E16028 /* GridViewController.m */; };
 		CECB764520E560A100E16028 /* MovieCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CECB764420E560A100E16028 /* MovieCollectionCell.m */; };
+		CECB764820E59E1E00E16028 /* FavoritesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CECB764720E59E1E00E16028 /* FavoritesModel.m */; };
+		CECB764B20E5B4FC00E16028 /* PosterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CECB764A20E5B4FC00E16028 /* PosterViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,10 @@
 		CECB764120E55C4A00E16028 /* GridViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GridViewController.m; sourceTree = "<group>"; };
 		CECB764320E560A100E16028 /* MovieCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieCollectionCell.h; sourceTree = "<group>"; };
 		CECB764420E560A100E16028 /* MovieCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieCollectionCell.m; sourceTree = "<group>"; };
+		CECB764620E59E1E00E16028 /* FavoritesModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FavoritesModel.h; sourceTree = "<group>"; };
+		CECB764720E59E1E00E16028 /* FavoritesModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavoritesModel.m; sourceTree = "<group>"; };
+		CECB764920E5B4FC00E16028 /* PosterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PosterViewController.h; sourceTree = "<group>"; };
+		CECB764A20E5B4FC00E16028 /* PosterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PosterViewController.m; sourceTree = "<group>"; };
 		F39BD0BB582570F20A28F226 /* Pods-flix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flix.debug.xcconfig"; path = "Pods/Target Support Files/Pods-flix/Pods-flix.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -199,6 +205,8 @@
 		CE523CEB20E413B100A68B38 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CECB764620E59E1E00E16028 /* FavoritesModel.h */,
+				CECB764720E59E1E00E16028 /* FavoritesModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -212,6 +220,8 @@
 				CE523CF120E45ABD00A68B38 /* DetailsViewController.m */,
 				CECB764020E55C4A00E16028 /* GridViewController.h */,
 				CECB764120E55C4A00E16028 /* GridViewController.m */,
+				CECB764920E5B4FC00E16028 /* PosterViewController.h */,
+				CECB764A20E5B4FC00E16028 /* PosterViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -413,6 +423,8 @@
 				CE523CEF20E44B7B00A68B38 /* MovieCell.m in Sources */,
 				CECB764220E55C4A00E16028 /* GridViewController.m in Sources */,
 				CE523CE820E4128E00A68B38 /* MoviesViewController.m in Sources */,
+				CECB764820E59E1E00E16028 /* FavoritesModel.m in Sources */,
+				CECB764B20E5B4FC00E16028 /* PosterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

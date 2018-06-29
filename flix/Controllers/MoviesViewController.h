@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MoviesViewController : UIViewController
-
+@property (strong, nonatomic) NSMutableArray *favorites;
 @end

@@ -27,17 +27,35 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self.mainActivityMonitor startAnimating];
 
 
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    [self fetchMovies];
+    // [self fetchMovies];
+    // FAVORITES PAGE
     // CREATE REFRESH CONTROL
-    self.refreshControl = [[UIRefreshControl alloc] init];
-    [self.refreshControl addTarget:self action:@selector(fetchMovies) forControlEvents:UIControlEventValueChanged];
-    [self.tableView insertSubview:self.refreshControl atIndex:0];
+    //self.refreshControl = [[UIRefreshControl alloc] init];
+    //[self.refreshControl addTarget:self action:@selector(fetchMovies) forControlEvents:UIControlEventValueChanged];
+    //[self.tableView insertSubview:self.refreshControl atIndex:0];
+    self.movies = (NSArray *)self.favorites;
+    [self.mainActivityMonitor stopAnimating];
+    NSLog(@"HERE!!!!!");
+    for (int i=0; i < self.favorites.count; i++) {
+        NSString *title = self.favorites[i][@"title"];
+        NSLog(title);
+    }
+    
+   
     
     
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.movies = [defaults objectForKey:@"movies"];
+    [self.tableView reloadData];
     
 }
 
@@ -128,6 +146,7 @@
     NSDictionary *movie = self.movies[indexPath.row];
     DetailsViewController *detailsViewController = [segue destinationViewController];
     detailsViewController.movie = movie;
+    
 }
 
 

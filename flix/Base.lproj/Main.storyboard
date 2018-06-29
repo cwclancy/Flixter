@@ -123,9 +123,13 @@
                                         <rect key="frame" x="0.0" y="-8" width="375" height="164"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wj1-k5-B9D">
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wj1-k5-B9D">
                                         <rect key="frame" x="16" y="92" width="115" height="177"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="xqt-Q3-SJN" appends="YES" id="8fQ-pI-Ef4"/>
+                                        </connections>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZx-Kq-tBa">
                                         <rect key="frame" x="8" y="277" width="359" height="34"/>
@@ -138,12 +142,24 @@
                                         <rect key="frame" x="169" y="284" width="20" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </activityIndicatorView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bAs-gB-2SY">
+                                        <rect key="frame" x="316" y="115" width="59" height="41"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Favorite">
+                                            <color key="titleColor" red="1" green="0.96196711030000004" blue="0.42036303990000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="favoriteButton:" destination="qUm-x3-rxH" eventType="touchUpInside" id="ULu-Xh-WZW"/>
+                                            <action selector="favoriteButton:" destination="0FO-fW-gfR" eventType="touchUpInside" id="mf7-EE-ZwA"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="eGE-od-Yad"/>
                     </view>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="backdropsView" destination="Kd6-7Z-vDR" id="MSB-j9-t2J"/>
                         <outlet property="loadingIndicator" destination="R0Z-dZ-LNs" id="5k3-Ih-Dpi"/>
@@ -154,8 +170,14 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OHs-gK-Fys" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="qUm-x3-rxH" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="xqt-Q3-SJN">
+                    <connections>
+                        <segue destination="odE-65-l9c" kind="show" id="7OO-o5-Mv2"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-2287" y="1317"/>
+            <point key="canvasLocation" x="-2287.1999999999998" y="1316.4917541229386"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ZSz-eF-PDX">
@@ -175,15 +197,19 @@
             </objects>
             <point key="canvasLocation" x="-1284" y="-896"/>
         </scene>
-        <!--Favorites-->
+        <!--Now Playing-->
         <scene sceneID="CM0-dd-vXl">
             <objects>
                 <navigationController id="dkp-md-DvS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favorites" id="P7b-UD-7Xl"/>
+                    <tabBarItem key="tabBarItem" title="Now Playing" id="P7b-UD-7Xl"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yeT-iC-DFO">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.74632314249023879" green="0.58616210481160691" blue="0.55015713732807858" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gUd-0v-EtW">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="LFB-4z-7QG" kind="relationship" relationship="rootViewController" id="hJw-Zg-nvS"/>
                     </connections>
@@ -205,22 +231,26 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="gc4-pb-wmv">
-                                    <size key="itemSize" width="187" height="285"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="itemSize" width="375" height="285"/>
+                                    <size key="headerReferenceSize" width="0.0" height="49"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieCollectionCell" id="GTH-s1-bG0" customClass="MovieCollectionCell">
-                                        <rect key="frame" x="0.0" y="0.0" width="187" height="285"/>
+                                        <rect key="frame" x="0.0" y="49" width="375" height="285"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="187" height="285"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="285"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d2I-pc-TsI">
-                                                    <rect key="frame" x="0.0" y="0.0" width="187" height="285"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="388" height="285"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <gestureRecognizers/>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="NGF-hL-qwJ" appends="YES" id="tFk-Bt-8kG"/>
+                                                    </connections>
                                                 </imageView>
                                             </subviews>
                                         </view>
@@ -230,25 +260,70 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="0v1-LL-Hqj">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionReusableView>
                             </collectionView>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UKW-KU-G5m">
+                                <rect key="frame" x="0.0" y="60" width="375" height="56"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="1fU-nm-vb3"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="wed-3K-HPD" appends="YES" id="ojf-Z7-zKB"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="7vG-tM-Nb1"/>
                     <connections>
                         <outlet property="collectionView" destination="uho-Nm-Crs" id="huJ-dk-lt8"/>
+                        <outlet property="searchBar" destination="UKW-KU-G5m" id="hbD-4y-Efs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qWc-fa-AdO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="kxe-Ks-3UB">
+                    <connections>
+                        <action selector="swipeToCancel:" destination="LFB-4z-7QG" id="vfS-mb-wsI"/>
+                    </connections>
+                </panGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="wed-3K-HPD">
+                    <connections>
+                        <action selector="swipeToCancel:" destination="LFB-4z-7QG" id="gCK-Dt-D8L"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="NGF-hL-qwJ">
+                    <connections>
+                        <action selector="swipeToCancel:" destination="LFB-4z-7QG" id="YT3-Z0-IHl"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-260" y="612.14392803598207"/>
         </scene>
-        <!--Now Plaing-->
+        <!--View Controller-->
+        <scene sceneID="MCf-uY-rgQ">
+            <objects>
+                <viewController id="odE-65-l9c" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mTM-CW-WeM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="TJS-OM-jf9"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w6I-8g-TiT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1284" y="1316"/>
+        </scene>
+        <!--Favorites-->
         <scene sceneID="Zgy-gO-9ra">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4JM-oi-0BI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Now Plaing" id="PNY-Zv-1KF"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" id="PNY-Zv-1KF"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tw8-u3-ZLc">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -265,6 +340,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="C9w-ay-2Cn"/>
+        <segue reference="kNT-he-I12"/>
     </inferredMetricsTieBreakers>
 </document>

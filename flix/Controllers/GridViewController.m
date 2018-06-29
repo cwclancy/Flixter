@@ -12,10 +12,14 @@
 #import "DetailsViewController.h"
 
 
-@interface GridViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface GridViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate>
 
 @property (nonatomic, strong) NSArray *movies;
+@property (nonatomic, strong) NSArray *movieTitles;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (strong, nonatomic) NSArray *filteredData;
+@property (strong, nonatomic) NSMutableArray *favorites;
 
 @end
 
@@ -26,6 +30,7 @@
 
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
+    self.searchBar.delegate = self;
     
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
     CGFloat postersPerLine = 2;
@@ -34,6 +39,8 @@
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);
     
     [self fetchMovies];
+    self.filteredData = self.movies;
+    //self.movieTitles = [self getMovieTitles:self.movies];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -68,6 +75,7 @@
             NSLog(@"%@", dataDictionary); // print data
             
             self.movies = dataDictionary[@"results"];
+            self.filteredData = self.movies;
             [self.collectionView reloadData];
             // TODO: Get the array of movies
             
@@ -80,22 +88,14 @@
     [task resume];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+// SEGUE
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     UICollectionViewCell *tappedCell = sender;
     NSIndexPath *indexPath =[self.collectionView indexPathForCell:tappedCell];
-    NSDictionary *movie = self.movies[indexPath.item];
+    NSDictionary *movie = self.filteredData[indexPath.item];
     DetailsViewController *detailsViewController = [segue destinationViewController];
     detailsViewController.movie = movie;
 }
@@ -103,7 +103,7 @@
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     MovieCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MovieCollectionCell" forIndexPath:indexPath];
     
-    NSDictionary *movie = self.movies[indexPath.item];
+    NSDictionary *movie = self.filteredData[indexPath.item];
     NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
     NSString *posterURLString = movie[@"poster_path"];
     NSString *fullPosterURLString = [baseURLString stringByAppendingString:posterURLString];
@@ -115,9 +115,44 @@
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.movies.count;
+    return self.filteredData.count;
 }
 
+// Search Bar Functions
+
+- (NSArray *)getMovieTitles:(NSArray *)movies {
+    NSMutableArray *result = [NSMutableArray new];
+    for (int i = 0; i < self.movies.count; i++) {
+        NSString *title = self.movies[i][@"title"];
+        [result addObject:title];
+    }
+    return (NSArray *)result;
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    
+    if (searchText.length != 0) {
+        
+        self.filteredData = [self.movies filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(title contains[c] %@)", searchText]];
+        
+        NSLog(@"%@", self.filteredData);
+        
+    }
+    else {
+        self.filteredData = self.movies;
+    }
+    
+    [self.collectionView reloadData];
+    
+}
+
+- (IBAction)swipeToCancel:(id)sender {
+    self.filteredData = self.movies;
+    [self.collectionView reloadData];
+    [self.searchBar resignFirstResponder];
+    self.searchBar.text = @"";
+    NSLog(@"SWIPER IM SWIPING!!!");
+}
 
 
 @end
