@@ -27,10 +27,10 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [ ] User can select "favorite movies" that load whenever they load the app
-- [ ] User can remove "favortie movies" 
-- [ ] User can swipe away to get rid of the text bar
-- [ ] User can tap the movie poster an see a trailer for that video
+- [y] User can select "favorite movies" that load whenever they load the app
+- [y] User can remove "favortie movies" 
+- [y] User can swipe away to get rid of the text bar
+- [y] User can tap the movie poster an see a trailer for that video
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
