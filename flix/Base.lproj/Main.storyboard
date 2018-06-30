@@ -289,6 +289,10 @@
                                 <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="G3U-0q-JM4">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <gestureRecognizers/>
@@ -299,6 +303,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="7vG-tM-Nb1"/>
                     <connections>
+                        <outlet property="activityMonitor" destination="G3U-0q-JM4" id="8Se-Dd-v8V"/>
                         <outlet property="collectionView" destination="uho-Nm-Crs" id="huJ-dk-lt8"/>
                         <outlet property="searchBar" destination="UKW-KU-G5m" id="hbD-4y-Efs"/>
                     </connections>

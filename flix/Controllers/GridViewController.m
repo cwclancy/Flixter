@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) NSArray *filteredData;
 @property (strong, nonatomic) NSMutableArray *favorites;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityMonitor;
 
 @end
 
@@ -27,7 +28,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     self.searchBar.delegate = self;
@@ -49,8 +49,8 @@
 }
 
 - (void)fetchMovies {
-    //[self.mainActivityMonitor startAnimating];
-    //[self.view bringSubviewToFront:self.mainActivityMonitor];
+    [self.activityMonitor startAnimating];
+    [self.view bringSubviewToFront:self.activityMonitor];
     // network call
     NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
@@ -83,7 +83,7 @@
             // TODO: Reload your table view data
         }
         //[self.refreshControl endRefreshing];
-        //[self.mainActivityMonitor stopAnimating];
+        [self.activityMonitor stopAnimating];
     }];
     [task resume];
 }
