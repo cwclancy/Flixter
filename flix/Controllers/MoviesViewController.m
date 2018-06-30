@@ -17,7 +17,7 @@
 @property (nonatomic, strong) NSArray *movies;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
-@property (strong, nonatomic) IBOutlet UIVisualEffectView *blurEffect;
+
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *mainActivityMonitor;
 
 @end
@@ -33,8 +33,11 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     // [self fetchMovies];
+    
     // FAVORITES PAGE
+    
     // CREATE REFRESH CONTROL
+    
     //self.refreshControl = [[UIRefreshControl alloc] init];
     //[self.refreshControl addTarget:self action:@selector(fetchMovies) forControlEvents:UIControlEventValueChanged];
     //[self.tableView insertSubview:self.refreshControl atIndex:0];
@@ -43,7 +46,10 @@
     NSLog(@"HERE!!!!!");
     for (int i=0; i < self.favorites.count; i++) {
         NSString *title = self.favorites[i][@"title"];
-        NSLog(title);
+        //NSLog(title);
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.movies = [defaults objectForKey:@"movies"];
+    [self.tableView reloadData];
     }
     
    
@@ -83,11 +89,11 @@
         else {
             NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
             
-            NSLog(@"%@", dataDictionary); // print data
+            //NSLog(@"%@", dataDictionary); // print data
             
             self.movies = dataDictionary[@"results"];
             for (NSDictionary *movie in self.movies) {
-                NSLog(@"%@", movie[@"title"]);
+                //NSLog(@"%@", movie[@"title"]);
             }
             
             [self.tableView reloadData];
@@ -120,6 +126,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     MovieCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MovieCell"];
+    NSLog(@"%@", self.movies[0][@"title"]);
     NSDictionary *movie = self.movies[indexPath.row];
     cell.titleLabel.text = movie[@"title"];
     cell.synopsisLabel.text = movie[@"overview"];
@@ -135,9 +142,46 @@
     return cell;
 }
 
+// Delete Favorite
+- (void)deleteMovie:(NSString*)title {
+    // Create User Defaults
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSArray *localMovies = [defaults objectForKey:@"movies"];
+    NSMutableArray *temp = [NSMutableArray arrayWithArray:localMovies];
+    // Gather Items to delete
+    NSMutableArray *finalArray = [[NSMutableArray alloc] init];
+    NSLog(@"number %lu", temp.count);
+    for (int i = 0; i < temp.count; i++) {
+        if (temp[i][@"title"] != title) {
+            NSLog(@"I'm here in the thing");
+            [finalArray addObject:temp[i]];
+        }
+    }
+    
+    // Create data to put back into the user settings
+    NSArray *result = [NSArray arrayWithArray:finalArray];
+    [defaults setObject:result forKey:@"movies"];
+    self.movies = [defaults objectForKey:@"movies"];
+    NSLog(@"here");
+}
+
+- (IBAction)deleteFavorite:(id)sender {
+    NSLog(@"IM HERE!!!");
+    UITableViewCell *swipedCell = sender;
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:swipedCell];
+    NSDictionary *movie = self.movies[indexPath.row];
+    [self deleteMovie:movie[@"title"]];
+    [self.tableView reloadData];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.movies = [defaults objectForKey:@"movies"];
+    [self.tableView reloadData];
+}
+
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.

@@ -10,6 +10,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "MoviesViewController.h"
 #import "FavoritesModel.h"
+#import "TrailerViewController.h"
 
 @interface DetailsViewController ()
 
@@ -64,14 +65,26 @@
     // prepare the view
 }
 
-// FAVORITE  BUTTON
+// FAVORITE LOGIC
+
+- (bool)checkIfTitleInArray:(NSString *)title {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSArray *moviesArray = [defaults objectForKey:@"movies"];
+    for (int i = 0; i < moviesArray.count; i++) {
+        NSString *movieTitle = moviesArray[i][@"title"];
+        if (title == movieTitle) {
+            return true;
+        }
+    }
+    return false;
+}
+
+
 
 - (void)addMovie:(NSDictionary *)movie {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSArray *check = [defaults objectForKey:@"movies"];
-    if (check != nil) {
-        NSLog(check[0][@"title"]);
-        NSLog([NSString stringWithFormat:@"type this %lu", check.count]);
+    if (check != nil && ![self checkIfTitleInArray:self.movie[@"title"]]) {
         NSArray *local_movies = [defaults objectForKey:@"movies"];
         NSMutableArray *temp = [NSMutableArray arrayWithArray:local_movies];
         [temp addObject:movie];
@@ -79,12 +92,16 @@
         [defaults setObject:final forKey:@"movies"];
         self.flag = true;
     }
-    else {
+    else if (![self checkIfTitleInArray:self.movie[@"title"]]){
         NSMutableArray *local_movies = [[NSMutableArray alloc] init];
         [local_movies addObject:self.movie];
         [defaults setObject:(NSArray *)local_movies forKey:@"movies"];
     }
+    else {
+        return;
+    }
 }
+
 
 - (NSArray *)getMovies {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -104,13 +121,11 @@
 
 
 #pragma mark - Navigation
-/*
+
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    UITableViewCell *tappedCell = sender;
+    TrailerViewController *trailerViewController = [segue destinationViewController];
+    trailerViewController.movie = self.movie;
 }
-*/
 
 @end

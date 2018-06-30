@@ -22,6 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="164" id="teO-zx-NVO" customClass="MovieCell">
                                         <rect key="frame" x="0.0" y="28" width="375" height="164"/>
@@ -34,6 +35,10 @@
                                                     <rect key="frame" x="0.0" y="-27" width="375" height="190"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <gestureRecognizers/>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="elX-wV-QEd" appends="YES" id="4xU-Xh-2Vc"/>
+                                                    </connections>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4iJ-0A-Meu">
                                                     <rect key="frame" x="65" y="11" width="245" height="42"/>
@@ -61,10 +66,12 @@
                                             <outlet property="posterImage" destination="7a3-Yp-0WL" id="Ncd-eG-QDr"/>
                                             <outlet property="synopsisLabel" destination="0Zi-k9-qcC" id="YC0-hn-9iA"/>
                                             <outlet property="titleLabel" destination="4iJ-0A-Meu" id="D1f-VC-NI1"/>
-                                            <segue destination="0FO-fW-gfR" kind="show" id="kNT-he-I12"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ByN-7C-LSe" appends="YES" id="vZe-IB-NhH"/>
+                                </connections>
                             </tableView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="j8O-1W-cn9">
                                 <rect key="frame" x="0.0" y="315" width="375" height="37"/>
@@ -83,6 +90,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="elX-wV-QEd">
+                    <connections>
+                        <action selector="deleteFavorite:" destination="BYZ-38-t0r" id="QX7-Zq-bkt"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <tapGestureRecognizer id="ByN-7C-LSe">
+                    <connections>
+                        <action selector="deleteFavorite:" destination="BYZ-38-t0r" id="0kE-Nh-UAd"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-2287" y="611"/>
         </scene>
@@ -190,7 +207,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="dkp-md-DvS" kind="relationship" relationship="viewControllers" id="wnC-YV-1WD"/>
-                        <segue destination="4JM-oi-0BI" kind="relationship" relationship="viewControllers" id="ebs-iE-eHj"/>
+                        <segue destination="4JM-oi-0BI" kind="relationship" relationship="viewControllers" id="syi-mY-V3n"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iV9-xf-yiy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -304,20 +321,34 @@
             </objects>
             <point key="canvasLocation" x="-260" y="612.14392803598207"/>
         </scene>
-        <!--View Controller-->
+        <!--Trailer View Controller-->
         <scene sceneID="MCf-uY-rgQ">
             <objects>
-                <viewController id="odE-65-l9c" sceneMemberID="viewController">
+                <viewController id="odE-65-l9c" customClass="TrailerViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mTM-CW-WeM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a7f-4w-AV9" customClass="UIWebView">
+                                <rect key="frame" x="0.0" y="228" width="375" height="211"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <viewLayoutGuide key="safeArea" id="TJS-OM-jf9"/>
                     </view>
+                    <connections>
+                        <outlet property="webKitView" destination="a7f-4w-AV9" id="zQZ-u1-Fai"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w6I-8g-TiT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1284" y="1316"/>
+            <point key="canvasLocation" x="-1284" y="1315.5922038980511"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="Zgy-gO-9ra">
@@ -339,7 +370,4 @@
             <point key="canvasLocation" x="-2287" y="-130"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="kNT-he-I12"/>
-    </inferredMetricsTieBreakers>
 </document>

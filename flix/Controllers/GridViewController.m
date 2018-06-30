@@ -98,6 +98,7 @@
     NSDictionary *movie = self.filteredData[indexPath.item];
     DetailsViewController *detailsViewController = [segue destinationViewController];
     detailsViewController.movie = movie;
+    
 }
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {

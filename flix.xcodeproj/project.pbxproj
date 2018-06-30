@@ -10,6 +10,7 @@
 		0E6D9B604CC8BD64E8EAAB9E /* libPods-flixUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3030DEE8FE42F997FE4DB8A5 /* libPods-flixUITests.a */; };
 		76455D1A2A8B5DD02BEF9A41 /* libPods-flixTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C379CA3FEA94CCFE1968C4E4 /* libPods-flixTests.a */; };
 		C8931A21EF745C409A144D9A /* libPods-flix.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC69417B52F3CCDAD417076 /* libPods-flix.a */; };
+		CE18C4ED20E6C30F00A29678 /* TrailerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18C4EC20E6C30F00A29678 /* TrailerViewController.m */; };
 		CE523CB620E40AA000A68B38 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE523CB520E40AA000A68B38 /* AppDelegate.m */; };
 		CE523CBC20E40AA000A68B38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE523CBA20E40AA000A68B38 /* Main.storyboard */; };
 		CE523CBE20E40AA100A68B38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE523CBD20E40AA100A68B38 /* Assets.xcassets */; };
@@ -52,6 +53,8 @@
 		98965404132384F83C56FFD2 /* Pods-flixUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flixUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-flixUITests/Pods-flixUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BAC69417B52F3CCDAD417076 /* libPods-flix.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-flix.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C379CA3FEA94CCFE1968C4E4 /* libPods-flixTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-flixTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE18C4EB20E6C30F00A29678 /* TrailerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrailerViewController.h; sourceTree = "<group>"; };
+		CE18C4EC20E6C30F00A29678 /* TrailerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrailerViewController.m; sourceTree = "<group>"; };
 		CE523CB120E40AA000A68B38 /* flix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE523CB420E40AA000A68B38 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CE523CB520E40AA000A68B38 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -222,6 +225,8 @@
 				CECB764120E55C4A00E16028 /* GridViewController.m */,
 				CECB764920E5B4FC00E16028 /* PosterViewController.h */,
 				CECB764A20E5B4FC00E16028 /* PosterViewController.m */,
+				CE18C4EB20E6C30F00A29678 /* TrailerViewController.h */,
+				CE18C4EC20E6C30F00A29678 /* TrailerViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -418,6 +423,7 @@
 			files = (
 				CE523CC420E40AA100A68B38 /* main.m in Sources */,
 				CE523CF220E45ABD00A68B38 /* DetailsViewController.m in Sources */,
+				CE18C4ED20E6C30F00A29678 /* TrailerViewController.m in Sources */,
 				CE523CB620E40AA000A68B38 /* AppDelegate.m in Sources */,
 				CECB764520E560A100E16028 /* MovieCollectionCell.m in Sources */,
 				CE523CEF20E44B7B00A68B38 /* MovieCell.m in Sources */,
