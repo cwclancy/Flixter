@@ -10,12 +10,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Flix-->
+        <!--Favorites-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MoviesViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="163" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8i3-uG-knl">
@@ -83,7 +83,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Flix" id="J5q-oB-T2k"/>
+                    <navigationItem key="navigationItem" title="Favorites" id="J5q-oB-T2k"/>
                     <connections>
                         <outlet property="mainActivityMonitor" destination="j8O-1W-cn9" id="OI5-3t-TDk"/>
                         <outlet property="tableView" destination="8i3-uG-knl" id="4df-9d-CJT"/>
@@ -201,7 +201,7 @@
         <scene sceneID="ZSz-eF-PDX">
             <objects>
                 <tabBarController id="Lle-Mo-f9f" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bEQ-K0-wRM">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionIndicatorImage="reel_tabbar_icon" id="bEQ-K0-wRM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -362,7 +362,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4JM-oi-0BI" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Favorites" id="PNY-Zv-1KF"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tw8-u3-ZLc">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="tw8-u3-ZLc">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -377,6 +377,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="reel_tabbar_icon" width="25" height="25"/>
         <image name="ticket_tabbar_icon" width="25" height="25"/>
     </resources>
 </document>

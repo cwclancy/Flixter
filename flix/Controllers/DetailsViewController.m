@@ -29,6 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"Details";
     [self.loadingIndicator startAnimating];
     // Do any additional setup after loading the view.
     NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
