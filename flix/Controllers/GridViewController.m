@@ -26,8 +26,15 @@
 
 @implementation GridViewController
 
+- (void)beginRefresh:(UIRefreshControl *)refreshControl {
+    [self fetchMovies];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
+    [self.collectionView insertSubview:refreshControl atIndex:0];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     self.searchBar.delegate = self;
