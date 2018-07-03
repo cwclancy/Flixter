@@ -32,19 +32,14 @@
     self.navigationItem.title = @"Details";
     [self.loadingIndicator startAnimating];
     // Do any additional setup after loading the view.
-    NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
-    NSString *posterURLString = self.movie[@"poster_path"];
-    NSString *fullPosterURLString = [baseURLString stringByAppendingString:posterURLString];
-    NSURL *posterURL = [NSURL URLWithString:fullPosterURLString];
-    NSString *backdropURLString = self.movie[@"backdrop_path"];
-    NSString *fullBackdropURLString = [baseURLString stringByAppendingString:backdropURLString];
-    NSURL *backdropURL = [NSURL URLWithString:fullBackdropURLString];
+    NSURL *posterURL = self.movie.posterURL;
+    NSURL *backdropURL = self.movie.backdropURL;
     [self.posterView setImageWithURL:posterURL];
     [self.backdropsView setImageWithURL:backdropURL];
     // set labels
-    self.titleLabel.text = self.movie[@"title"];
-    self.synopsisLabel.text = self.movie[@"overview"];
-    self.releaseDateLabel.text = self.movie[@"release_date"];
+    self.titleLabel.text = self.movie.title;
+    self.synopsisLabel.text = self.movie.overview;
+    self.releaseDateLabel.text = self.movie.releaseDate;
     
     // UI Markups
     [self.titleLabel sizeToFit];
@@ -68,6 +63,7 @@
 
 // FAVORITE LOGIC
 
+/*
 - (bool)checkIfTitleInArray:(NSString *)title {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSArray *moviesArray = [defaults objectForKey:@"movies"];
@@ -85,7 +81,7 @@
 - (void)addMovie:(NSDictionary *)movie {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSArray *check = [defaults objectForKey:@"movies"];
-    if (check != nil && ![self checkIfTitleInArray:self.movie[@"title"]]) {
+    if (check != nil && ![self checkIfTitleInArray:self.movie.title]) {
         NSArray *local_movies = [defaults objectForKey:@"movies"];
         NSMutableArray *temp = [NSMutableArray arrayWithArray:local_movies];
         [temp addObject:movie];
@@ -93,7 +89,7 @@
         [defaults setObject:final forKey:@"movies"];
         self.flag = true;
     }
-    else if (![self checkIfTitleInArray:self.movie[@"title"]]){
+    else if (![self checkIfTitleInArray:self.movie.title]){
         NSMutableArray *local_movies = [[NSMutableArray alloc] init];
         [local_movies addObject:self.movie];
         [defaults setObject:(NSArray *)local_movies forKey:@"movies"];
@@ -104,6 +100,7 @@
 }
 
 
+
 - (NSArray *)getMovies {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     return (NSArray *)[defaults objectForKey:@"movies"];
@@ -112,13 +109,15 @@
 
 
 - (IBAction)favoriteButton:(id)sender {
-    [self addMovie:self.movie];
-    NSLog(self.movie[@"title"]);
-    NSArray *mv = [self getMovies];
-    NSLog([NSString stringWithFormat:@"This is the Count %lu", mv.count]);
-    NSLog(mv[0][@"title"]);
+    //[self addMovie:self.movie];
+    [self addMovie:[Movie movieToDict:self.movie]];
+    //NSLog(self.movie[@"title"]);
+    //NSArray *mv = [self getMovies];
+    //NSLog([NSString stringWithFormat:@"This is the Count %lu", mv.count]);
+    //NSLog(mv[0][@"title"]);
 
 }
+*/
 
 
 #pragma mark - Navigation

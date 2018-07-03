@@ -6,15 +6,23 @@
 //  Copyright © 2018 codepath. All rights reserved.
 //
 
+/*
+    THERE REMEMBER ERRORS MIGHT BE COMING FROM CHANGING TYPE OF MOVIES TO NSMUTABLE ARRAY
+    IF NECESSARY CHANGE THAT
+ */
+
 #import "GridViewController.h"
 #import "MovieCollectionCell.h"
 #import "UIImageView+AFNetworking.h"
 #import "DetailsViewController.h"
+#import "Movie.h"
+#import "MovieApiManager.h"
+#import "MovieCell.h"
 
 
 @interface GridViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate>
 
-@property (nonatomic, strong) NSArray *movies;
+@property (nonatomic, strong) NSMutableArray *movies;
 @property (nonatomic, strong) NSArray *movieTitles;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
@@ -57,8 +65,28 @@
 }
 
 - (void)fetchMovies {
+    
     [self.activityMonitor startAnimating];
     [self.view bringSubviewToFront:self.activityMonitor];
+    
+    // new is an alternative syntax to calling alloc init.
+    
+    MovieApiManager *manager = [MovieApiManager new];
+    [manager fetchNowPlaying:^(NSArray *movies, NSError *error) {
+        self.movies = [NSMutableArray arrayWithArray:movies];
+         NSLog([NSString stringWithFormat:@"IM HERE %lu", self.movies.count]);
+        self.filteredData = self.movies;
+        [self.collectionView reloadData];
+        NSLog(@"here");
+    }];
+    
+    
+    
+    
+    [self.activityMonitor stopAnimating];
+
+    
+    /*
     // network call
     NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
@@ -80,9 +108,9 @@
         else {
             NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
             
-            NSLog(@"%@", dataDictionary); // print data
-            
-            self.movies = dataDictionary[@"results"];
+            // Initialize Movies Array
+            self.movies = [NSMutableArray arrayWithArray:[Movie moviesWithDictionaries:dataDictionary[@"results"]]];
+            // self.movies = dataDictionary[@"results"];
             self.filteredData = self.movies;
             [self.collectionView reloadData];
             // TODO: Get the array of movies
@@ -93,7 +121,9 @@
         //[self.refreshControl endRefreshing];
         [self.activityMonitor stopAnimating];
     }];
-    [task resume];
+    */
+    [self.collectionView reloadData];
+
 }
 
 // SEGUE
@@ -105,30 +135,38 @@
     NSIndexPath *indexPath =[self.collectionView indexPathForCell:tappedCell];
     NSDictionary *movie = self.filteredData[indexPath.item];
     DetailsViewController *detailsViewController = [segue destinationViewController];
-    detailsViewController.movie = movie;
+    detailsViewController.movie = [[Movie alloc] initWithDictionary:movie];
     
 }
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     MovieCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MovieCollectionCell" forIndexPath:indexPath];
     
-    NSDictionary *movie = self.filteredData[indexPath.item];
+    Movie *movie = self.filteredData[indexPath.item];
+    NSLog(@"here too");
+    
+    /*
     NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
     NSString *posterURLString = movie[@"poster_path"];
     NSString *fullPosterURLString = [baseURLString stringByAppendingString:posterURLString];
-    NSURL *posterURL = [NSURL URLWithString:fullPosterURLString];
+    */
+    
+    NSURL *posterURL = movie.posterURL;
     cell.posterView.image = nil;
     [cell.posterView setImageWithURL:posterURL];
+    NSLog(@"here too");
     
     return cell;
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    NSLog([NSString stringWithFormat:@"IM HERE IN COLLECITON VIEW %lu", self.filteredData.count]);
     return self.filteredData.count;
 }
 
 // Search Bar Functions
 
+/*
 - (NSArray *)getMovieTitles:(NSArray *)movies {
     NSMutableArray *result = [NSMutableArray new];
     for (int i = 0; i < self.movies.count; i++) {
@@ -137,7 +175,10 @@
     }
     return (NSArray *)result;
 }
+*/
 
+
+// TODO: Change this funciton to account for new movie model
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     
     if (searchText.length != 0) {

@@ -21,6 +21,9 @@
 		CE523CE820E4128E00A68B38 /* MoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE523CE720E4128E00A68B38 /* MoviesViewController.m */; };
 		CE523CEF20E44B7B00A68B38 /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE523CEE20E44B7B00A68B38 /* MovieCell.m */; };
 		CE523CF220E45ABD00A68B38 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE523CF120E45ABD00A68B38 /* DetailsViewController.m */; };
+		CEAEB28520EA9B3A00467B55 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAEB28420EA9B3A00467B55 /* Movie.m */; };
+		CEAEB28820EAB66600467B55 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAEB28720EAB66600467B55 /* APIManager.m */; };
+		CEAEB28B20EAB9C000467B55 /* MovieApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAEB28A20EAB9C000467B55 /* MovieApiManager.m */; };
 		CECB764220E55C4A00E16028 /* GridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CECB764120E55C4A00E16028 /* GridViewController.m */; };
 		CECB764520E560A100E16028 /* MovieCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CECB764420E560A100E16028 /* MovieCollectionCell.m */; };
 		CECB764820E59E1E00E16028 /* FavoritesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CECB764720E59E1E00E16028 /* FavoritesModel.m */; };
@@ -75,6 +78,12 @@
 		CE523CEE20E44B7B00A68B38 /* MovieCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieCell.m; sourceTree = "<group>"; };
 		CE523CF020E45ABD00A68B38 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		CE523CF120E45ABD00A68B38 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		CEAEB28320EA9B3A00467B55 /* Movie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
+		CEAEB28420EA9B3A00467B55 /* Movie.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
+		CEAEB28620EAB66600467B55 /* APIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
+		CEAEB28720EAB66600467B55 /* APIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
+		CEAEB28920EAB9C000467B55 /* MovieApiManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieApiManager.h; sourceTree = "<group>"; };
+		CEAEB28A20EAB9C000467B55 /* MovieApiManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieApiManager.m; sourceTree = "<group>"; };
 		CECB764020E55C4A00E16028 /* GridViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GridViewController.h; sourceTree = "<group>"; };
 		CECB764120E55C4A00E16028 /* GridViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GridViewController.m; sourceTree = "<group>"; };
 		CECB764320E560A100E16028 /* MovieCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieCollectionCell.h; sourceTree = "<group>"; };
@@ -210,6 +219,12 @@
 			children = (
 				CECB764620E59E1E00E16028 /* FavoritesModel.h */,
 				CECB764720E59E1E00E16028 /* FavoritesModel.m */,
+				CEAEB28320EA9B3A00467B55 /* Movie.h */,
+				CEAEB28420EA9B3A00467B55 /* Movie.m */,
+				CEAEB28620EAB66600467B55 /* APIManager.h */,
+				CEAEB28720EAB66600467B55 /* APIManager.m */,
+				CEAEB28920EAB9C000467B55 /* MovieApiManager.h */,
+				CEAEB28A20EAB9C000467B55 /* MovieApiManager.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -421,6 +436,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEAEB28520EA9B3A00467B55 /* Movie.m in Sources */,
 				CE523CC420E40AA100A68B38 /* main.m in Sources */,
 				CE523CF220E45ABD00A68B38 /* DetailsViewController.m in Sources */,
 				CE18C4ED20E6C30F00A29678 /* TrailerViewController.m in Sources */,
@@ -428,8 +444,10 @@
 				CECB764520E560A100E16028 /* MovieCollectionCell.m in Sources */,
 				CE523CEF20E44B7B00A68B38 /* MovieCell.m in Sources */,
 				CECB764220E55C4A00E16028 /* GridViewController.m in Sources */,
+				CEAEB28820EAB66600467B55 /* APIManager.m in Sources */,
 				CE523CE820E4128E00A68B38 /* MoviesViewController.m in Sources */,
 				CECB764820E59E1E00E16028 /* FavoritesModel.m in Sources */,
+				CEAEB28B20EAB9C000467B55 /* MovieApiManager.m in Sources */,
 				CECB764B20E5B4FC00E16028 /* PosterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

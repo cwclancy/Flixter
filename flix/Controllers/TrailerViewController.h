@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Movie.h"
 
 @interface TrailerViewController : UIViewController
-@property (strong, nonatomic) NSDictionary *movie;
+@property (strong, nonatomic) Movie *movie;
 @end

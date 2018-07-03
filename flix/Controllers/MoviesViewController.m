@@ -10,11 +10,13 @@
 #import "MovieCell.h"
 #import "UIImageView+AFNetworking.h"
 #import "DetailsViewController.h"
+#import "Movie.h"
+#import "MovieApiManager.h"
 
 
 @interface MoviesViewController () <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, strong) NSArray *movies;
+@property (nonatomic, strong) NSMutableArray *movies;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 
@@ -41,16 +43,18 @@
     //self.refreshControl = [[UIRefreshControl alloc] init];
     //[self.refreshControl addTarget:self action:@selector(fetchMovies) forControlEvents:UIControlEventValueChanged];
     //[self.tableView insertSubview:self.refreshControl atIndex:0];
-    self.movies = (NSArray *)self.favorites;
+    // self.movies = (NSArray *)self.favorites;
     [self.mainActivityMonitor stopAnimating];
-    NSLog(@"HERE!!!!!");
+    
+    //NSLog(@"HERE!!!!!");
+    /*
     for (int i=0; i < self.favorites.count; i++) {
         NSString *title = self.favorites[i][@"title"];
         //NSLog(title);
+    */
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.movies = [defaults objectForKey:@"movies"];
     [self.tableView reloadData];
-    }
     
    
     
@@ -60,7 +64,9 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    self.movies = [defaults objectForKey:@"movies"];
+    NSArray *movieArray = [defaults objectForKey:@"movies"];
+    self.movies = [NSMutableArray arrayWithArray:[Movie moviesWithDictionaries:movieArray]];
+    
     [self.tableView reloadData];
     
 }
@@ -68,6 +74,7 @@
 - (void)fetchMovies {
     [self.mainActivityMonitor startAnimating];
     [self.view bringSubviewToFront:self.mainActivityMonitor];
+    /*
     // network call
     NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
@@ -91,21 +98,20 @@
             
             //NSLog(@"%@", dataDictionary); // print data
             
-            self.movies = dataDictionary[@"results"];
-            for (NSDictionary *movie in self.movies) {
-                //NSLog(@"%@", movie[@"title"]);
-            }
+            self.movies = [NSMutableArray arrayWithArray:[Movie moviesWithDictionaries:dataDictionary[@"results"]]];
+
             
             [self.tableView reloadData];
-            // TODO: Get the array of movies
-            
-            // TODO: Store the movies in a property to use elsewhere
-            // TODO: Reload your table view data
         }
         [self.refreshControl endRefreshing];
         [self.mainActivityMonitor stopAnimating];
     }];
-    [task resume];
+     */
+    MovieApiManager *manager = [MovieApiManager new];
+    [manager fetchNowPlaying:^(NSArray *movies, NSError *error) {
+        self.movies = [NSMutableArray arrayWithArray:movies];
+        [self.tableView reloadData];
+    }];
 }
 
 
@@ -125,19 +131,20 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    /*
     MovieCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MovieCell"];
-    NSLog(@"%@", self.movies[0][@"title"]);
-    NSDictionary *movie = self.movies[indexPath.row];
-    cell.titleLabel.text = movie[@"title"];
-    cell.synopsisLabel.text = movie[@"overview"];
+    //NSLog(@"%@", self.movies[0][@"title"]);
+    Movie *movie = self.movies[indexPath.row];
+    cell.titleLabel.text = movie.title;
+    cell.synopsisLabel.text = movie.overview;
     
     // Adding Poster Photo
-    NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
-    NSString *posterURLString = movie[@"backdrop_path"];
-    NSString *fullPosterURLString = [baseURLString stringByAppendingString:posterURLString];
-    NSURL *posterURL = [NSURL URLWithString:fullPosterURLString];
+    NSURL *posterURL = movie.posterURL;
     cell.posterImage.image = nil;
     [cell.posterImage setImageWithURL:posterURL];
+    */
+    MovieCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MovieCell"];
+    cell.movie = self.movies[indexPath.row];
     
     return cell;
 }
@@ -150,7 +157,7 @@
     NSMutableArray *temp = [NSMutableArray arrayWithArray:localMovies];
     // Gather Items to delete
     NSMutableArray *finalArray = [[NSMutableArray alloc] init];
-    NSLog(@"number %lu", temp.count);
+    // NSLog(@"number %lu", temp.count);
     for (int i = 0; i < temp.count; i++) {
         if (temp[i][@"title"] != title) {
             NSLog(@"I'm here in the thing");
@@ -161,10 +168,12 @@
     // Create data to put back into the user settings
     NSArray *result = [NSArray arrayWithArray:finalArray];
     [defaults setObject:result forKey:@"movies"];
-    self.movies = [defaults objectForKey:@"movies"];
-    NSLog(@"here");
+    self.movies = [NSMutableArray arrayWithArray:[Movie moviesWithDictionaries:[defaults objectForKey:@"movies"]]];
+    //NSLog(@"here");
 }
 
+// TODO FIX BUG WHERE ONLY DELTES TOP MOVIE
+/*
 - (IBAction)deleteFavorite:(id)sender {
     NSLog(@"IM HERE!!!");
     UITableViewCell *swipedCell = sender;
@@ -176,6 +185,7 @@
     self.movies = [defaults objectForKey:@"movies"];
     [self.tableView reloadData];
 }
+*/
 
 
 #pragma mark - Navigation
@@ -187,7 +197,7 @@
     // Pass the selected object to the new view controller.
     UITableViewCell *tappedCell = sender;
     NSIndexPath *indexPath =[self.tableView indexPathForCell:tappedCell];
-    NSDictionary *movie = self.movies[indexPath.row];
+    Movie *movie = self.movies[indexPath.row];
     DetailsViewController *detailsViewController = [segue destinationViewController];
     detailsViewController.movie = movie;
     
