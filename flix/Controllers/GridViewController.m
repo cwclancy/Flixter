@@ -132,7 +132,7 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     UICollectionViewCell *tappedCell = sender;
-    NSIndexPath *indexPath =[self.collectionView indexPathForCell:tappedCell];
+    NSIndexPath *indexPath = [self.collectionView indexPathForCell:tappedCell];
     NSDictionary *movie = self.filteredData[indexPath.item];
     DetailsViewController *detailsViewController = [segue destinationViewController];
     detailsViewController.movie = [[Movie alloc] initWithDictionary:movie];
